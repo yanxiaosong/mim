@@ -21,7 +21,7 @@ Example interactions:
 `docker run -it alanyan/mim:v1 python /mim/main.py`
 
 - clean up<br>
-remove 'alanyan/mim' containers<br> 
+remove 'alanyan/mim' containers <br> 
 `docker ps -a | grep "alanyan/mim" | awk '{print $1}' | xargs docker rm` <br>
-remove 'alanyan/mim' images<br>
+remove 'alanyan/mim' images <br>
 `docker images -a | grep "alanyan/mim" | awk '{print $3}' | xargs docker rmi`
