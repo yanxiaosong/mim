@@ -1,7 +1,7 @@
 from typing import List
 
 from commands import NavigationCommand, AppCommand, SelectionCommand
-from mim import MimApp
+from mim_app import MimApp
 from ui import SimpleMimUI, MimUI
 from util import TextStatus
 

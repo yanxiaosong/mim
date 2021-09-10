@@ -1,6 +1,6 @@
 import unittest
 
-from ui import SimpleMimUI
+from mim.ui import SimpleMimUI
 
 
 class UITestCase(unittest.TestCase):

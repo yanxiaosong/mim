@@ -46,7 +46,7 @@ class MimApp:
             self._cur_text_status.current_command = command_text
             return command
         else:
-            return None   # validation failed, command doest not exist
+            return None  # validation failed, command doest not exist
 
     def output_current_text_status(self):
         """

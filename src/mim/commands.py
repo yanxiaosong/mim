@@ -49,6 +49,8 @@ class AppCommand(Command):
     def _revert(self) -> TextStatus:
         if len(self._command_history) > 1:
             self._command_history.pop()
+        else:
+            print('This is the very begninng. Calm down and enjoy it.')
         # need to pop "current" text status,  as it
         # will be re-pushed to history stack
         # after command executed in Mim App.
@@ -177,8 +179,8 @@ class SelectionCommand(Decorator):
         of decorator classes.
         """
         command_text_sub = text_status.current_command[1:]
-        start_pos_sub = text_status.end_position-1
-        end_pos_sub = text_status.end_position
+        start_pos_sub = text_status.end_position
+        end_pos_sub = text_status.end_position+1
         text_status_sub = TextStatus(text_status.current_text,
                                      command_text_sub,
                                      start_pos_sub,

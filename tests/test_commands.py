@@ -1,17 +1,17 @@
 import unittest
 
-from src.min.commands import NavigationCommand, SelectionCommand
-from src.min.util import TextStatus
+from mim.commands import NavigationCommand, SelectionCommand
+from mim.util import TextStatus
 
 
 class MimCommandTestCase(unittest.TestCase):
 
     def _assertions(self, text_status: TextStatus, start_pos_expected: int, end_pos_expected: int):
         text_status_updated = self.command.execute(text_status)
-        self.assertEqual(text_status_updated.current_text, text_status.current_text)
-        self.assertEqual(text_status_updated.current_command, text_status.current_command)
-        self.assertEqual(text_status_updated.start_position, start_pos_expected)
-        self.assertEqual(text_status_updated.end_position, end_pos_expected)
+        self.assertEqual(text_status.current_text, text_status_updated.current_text)
+        self.assertEqual(text_status.current_command, text_status_updated.current_command)
+        self.assertEqual(start_pos_expected, text_status_updated.start_position)
+        self.assertEqual(end_pos_expected, text_status_updated.end_position)
 
 
 class NavigationTestCase(MimCommandTestCase):
@@ -125,7 +125,7 @@ class NavigationTestCase(MimCommandTestCase):
         self._assertions(text_status, start_pos_expected=25, end_pos_expected=26)
 
         # TEST 'H[ello W]orld?  Hello World!'
-        # EXPECTED: 'Hello World?  Hello[ ]World!'
+        # EXPECTED: 'Hello[ ]World?  Hello World!'
         text_status.start_position = 1
         text_status.end_position = 7
         self._assertions(text_status, start_pos_expected=5, end_pos_expected=6)
